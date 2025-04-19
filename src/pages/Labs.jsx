@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Search, MapPin, Filter } from "lucide-react";
 import { Input } from "@/components/ui/input";
@@ -28,7 +27,6 @@ const LabSearch = () => {
   const [location, setLocation] = useState("");
 
   const handleSearch = () => {
-    // Placeholder for future search logic
     console.log("Searching with:", { searchQuery, category, location });
   };
 
@@ -107,4 +105,3 @@ const LabSearch = () => {
 };
 
 export default LabSearch;
-
