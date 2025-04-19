@@ -6,7 +6,7 @@ const HeroSection = () => (
   <div className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <h1 className="text-4xl font-bold mb-4">Find the Right Testing Laboratory</h1>
-      <p className="text-xl mb-8">Search by category or location to find accredited laboratories across India</p>
+      <p className="text-xl mb-8">Search by category or location to find accredited laboratories</p>
       <Link to="/labs" className="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-50">
         Find Labs Now
       </Link>
