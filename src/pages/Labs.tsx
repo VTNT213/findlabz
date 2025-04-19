@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { Search, MapPin } from "lucide-react";
+import { Search, MapPin, Filter } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 const labCategories = [
   "Chemical Testing",
   "Biological Testing",
-  "Mechanical Testing",
+  "Mechanical Testing", 
   "Environmental Testing",
   "Food Testing",
   "Calibration",
@@ -17,14 +17,9 @@ const labCategories = [
 ];
 
 const locations = [
-  "Mumbai",
-  "Delhi",
-  "Bangalore",
-  "Chennai",
-  "Hyderabad",
-  "Kolkata",
-  "Pune",
-  "Ahmedabad"
+  "Mumbai", "Delhi", "Bangalore", 
+  "Chennai", "Hyderabad", "Kolkata", 
+  "Pune", "Ahmedabad"
 ];
 
 const LabSearch = () => {
@@ -32,25 +27,32 @@ const LabSearch = () => {
   const [category, setCategory] = useState("");
   const [location, setLocation] = useState("");
 
+  const handleSearch = () => {
+    // Placeholder for future search logic
+    console.log("Searching with:", { searchQuery, category, location });
+  };
+
   return (
-    <div className="min-h-screen bg-gray-50 py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-8">Find Testing Laboratories</h1>
-        
-        <div className="bg-white rounded-lg shadow-sm p-6 mb-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-12 px-4">
+      <div className="container mx-auto max-w-6xl">
+        <div className="bg-white dark:bg-gray-800 shadow-lg rounded-xl border border-gray-100 dark:border-gray-700 p-8">
+          <h1 className="text-4xl font-bold text-gray-800 dark:text-white mb-6 text-center">
+            Find Testing Laboratories
+          </h1>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
             <div className="relative">
               <Input
                 placeholder="Search laboratories..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-10"
+                className="pl-10 py-3 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
               />
-              <Search className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
+              <Search className="absolute left-3 top-3 h-5 w-5 text-gray-400 dark:text-gray-300" />
             </div>
             
             <Select value={category} onValueChange={setCategory}>
-              <SelectTrigger>
+              <SelectTrigger className="py-3 dark:bg-gray-700 dark:text-white">
                 <SelectValue placeholder="Select Category" />
               </SelectTrigger>
               <SelectContent>
@@ -63,7 +65,7 @@ const LabSearch = () => {
             </Select>
 
             <Select value={location} onValueChange={setLocation}>
-              <SelectTrigger>
+              <SelectTrigger className="py-3 dark:bg-gray-700 dark:text-white">
                 <SelectValue placeholder="Select Location" />
               </SelectTrigger>
               <SelectContent>
@@ -76,17 +78,27 @@ const LabSearch = () => {
             </Select>
           </div>
 
-          <div className="mt-4 flex justify-end">
-            <Button className="bg-blue-600 hover:bg-blue-700">
+          <div className="flex justify-end space-x-4">
+            <Button 
+              variant="outline" 
+              className="text-gray-700 dark:text-white dark:border-gray-600"
+            >
+              <Filter className="mr-2 h-4 w-4" /> 
+              Advanced Filters
+            </Button>
+            <Button 
+              onClick={handleSearch} 
+              className="bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600"
+            >
               Search Labs
             </Button>
           </div>
         </div>
 
         {/* Placeholder for search results */}
-        <div className="bg-white rounded-lg shadow-sm p-6">
-          <p className="text-gray-500 text-center">
-            Enter your search criteria to find laboratories
+        <div className="mt-8 bg-white dark:bg-gray-800 rounded-xl shadow-md p-8 text-center">
+          <p className="text-gray-500 dark:text-gray-300">
+            Enter your search criteria to discover laboratories
           </p>
         </div>
       </div>
@@ -95,3 +107,4 @@ const LabSearch = () => {
 };
 
 export default LabSearch;
+
