@@ -1,8 +1,8 @@
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
+import Navbar from "./components/Navbar.jsx";
 import Index from "./pages/Index";
-import NotFound from "./pages/NotFound";
+import NotFound from "./pages/NotFound.jsx";
 import LabSearch from "./pages/Labs";
 
 const App = () => (
